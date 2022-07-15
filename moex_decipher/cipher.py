@@ -2,6 +2,7 @@ from copy import copy
 from random import shuffle
 from string import ascii_lowercase
 from typing import Dict
+from pprint import pprint
 
 
 def generate_letter_mapping() -> Dict[str, str]:
@@ -24,10 +25,12 @@ def encode(text: str, mapping: Dict[str, str]) -> str:
 
 
 def main() -> None:
+    text = input("Text to encode: ").lower()
     letter_map = generate_letter_mapping()
-    encoded = encode("abobus prikolus", letter_map)
+    encoded = encode(text, letter_map)
     print(encoded)
-
+    print(text)
+    pprint(letter_map)
 
 if __name__ == "__main__":
     main()
