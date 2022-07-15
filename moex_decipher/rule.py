@@ -1,9 +1,11 @@
-from pydantic import BaseModel
 from typing import List, Set
+
+from pydantic import BaseModel
 
 
 class Rule(BaseModel):
     """Describes a rule which the words are matched agains"""
+
     length: int
     same_characters_positions: List[int]
     matched_characters: Set[str] = set()
@@ -24,4 +26,3 @@ class Rule(BaseModel):
     def save_chars_at_desired_positions(self, word: str) -> None:
         """Saves the chars at desired positions to the list of possible answers"""
         self.matched_characters |= set(self.__get_chars_at_desired_positions(word))
-

@@ -1,8 +1,8 @@
 from copy import copy
+from pprint import pprint
 from random import shuffle
 from string import ascii_lowercase
 from typing import Dict
-from pprint import pprint
 
 
 def generate_letter_mapping() -> Dict[str, str]:
@@ -31,6 +31,7 @@ def main() -> None:
     print(encoded)
     print(text)
     pprint(letter_map)
+
 
 if __name__ == "__main__":
     main()
