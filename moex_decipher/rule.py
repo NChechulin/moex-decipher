@@ -10,6 +10,12 @@ class Rule(BaseModel):
     same_characters_positions: List[int]
     matched_characters: Set[str] = set()
 
+    @staticmethod
+    def from_word(word: str, letter: str) -> "Rule":
+        """Automatically generates a rule from a given word"""
+        occurencies = [i for i, c in enumerate(word) if c == letter]
+        return Rule(length=len(word), same_characters_positions=occurencies)
+
     def __get_chars_at_desired_positions(self, word: str) -> List[str]:
         """Returns chars at positions described in `same_characters_positions`"""
         return [word[pos] for pos in self.same_characters_positions]
